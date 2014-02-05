@@ -2,13 +2,13 @@ package datastruct;
 
 import java.util.Comparator;
 
-//import Huffman.HuffToken;
 
 public class HuffToken extends Node implements Comparable<HuffToken>{
 	private String text;
 	private int count;
 	private String code;
 	
+	// constructor used when combining two children into a combined node
 	public HuffToken(HuffToken a, HuffToken b){
 		text = a.getText() + b.getText();
 		count = a.getCount() + b.getCount();
@@ -84,6 +84,7 @@ public class HuffToken extends Node implements Comparable<HuffToken>{
 		return this.getCount() - other.getCount();
 	}
 	
+	//use Collections.sort() to sort HuffTokens
 	public static Comparator<HuffToken> HtComparator = new Comparator<HuffToken>(){
 		public int compare(HuffToken a, HuffToken b){
 			return a.getCount() - b.getCount();
